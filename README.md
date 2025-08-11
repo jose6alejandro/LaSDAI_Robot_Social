@@ -1,37 +1,15 @@
-# LRS2
-**LaSDAI Robot Social 2 (LRS2)**
+# LaSDAI Robot Social 
+Es un proyecto de bajo costo con el fin de desarrollar aplicaciones de interacción humano-robot
 
-## Requisitos
-- *espeak* y *mplayer*
-```sh
-$ sudo apt install espeak mplayer
-```
-#### Modificar la linea del archivo **Makefile** de acuerdo al sistema operativo:
+## Primera version LRS1 
+Fue un primer acercamiento donde se realizó una investigación cuyo objetivo fue incorporar al robot social construido (denominado LRS1) como tutor en una actividad denominada “dictado” que pertenece al normal desarrollo de la asignatura, cuyos resultados obtenidos favorecen la incorporación de un robot social de bajo costo para motivar el aprendizaje en la asignatura.
 
-- Linux 32bits:
-```sh
- biblioteca = 32bits
-```
--   Linux 64bits:
-```sh
- biblioteca = 64bits
-```
--   Raspberry:
-```sh
- biblioteca = Raspberry
-```
-## Compilación y ejecución
-- Ejemplo del programa hola mundo:
-```sh
-$ make ejemplo1
-$ sudo ./ejemplo1
-```
-LISTO. El robot debe decir **Hola Mundo** 
+## Segunda version LRS2
+Es la versión actual que se basa en la primera cuyo objetivo es potenciar las investigaciones de interacción humano-robot.
 
-## Ejemplos
-1. El robot reproduce "Hola mundo"
-2. Recibe información de botones 
-3. Recibe información de otro computador
-4. Envía información hacia el robot desde otro computador
-5. Presentación del LRS2
-6. Voces del robot
+- Modificaciones del lenguaje:
+    - Ahora se utiliza Python por su flexibilidad y facilidad de adaptación.
+- Modificaciones en la biblioteca pr1-ula
+    - Modificado el programa para reproducir el audio, ahora se usa mpv
+    - Agregado el nombre LRS2 para identificar el robot fisico 
+    - Agregado el procedimiento hablarRobot2(int, char*, char*) para usar el gtts y mejorar la sincronización del movimiento de la boca
