@@ -4,7 +4,8 @@
 Para la configuración del robot instale los paquetes necesarios:
 
 ```
-pip intall gtts vosk PyAudio wave mpv langchain langchain_google_genai
+sudo apt install mpv portaudio19-dev
+pip install gtts vosk PyAudio wave langchain langchain_google_genai python-dotenv
 ```
 
 ## Ejecución
