@@ -62,7 +62,7 @@ try:
     if arq == "x86_64":
         ula = ctypes.CDLL('./lasdai-ula/modulo/64bits/pr1-ula.so')
     else:
-        ula = ctypes.CDLL('./lasdai-ula/modulo/Pi3/pr1-ula.so')
+        ula = ctypes.CDLL('./lasdai-ula/modulo/Raspberry/pr1-ula.so')
 
 except OSError as e:
     print(f"Error al cargar la biblioteca: {e}")
