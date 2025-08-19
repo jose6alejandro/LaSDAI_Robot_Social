@@ -4,8 +4,11 @@
 Para la configuración del robot instale los paquetes necesarios:
 
 ```
-sudo apt install mpv portaudio19-dev
-pip install gtts vosk PyAudio wave langchain langchain_google_genai python-dotenv
+sudo apt install python3.9-dev mpv portaudio19-dev alsa-utils pulseaudio libgl1-mesa-glx
+pip install gtts vosk PyAudio wave 
+pip install langchain langchain_google_genai 
+pip install python-dotenv
+pip install opencv-python
 ```
 
 ## Ejecución
@@ -19,3 +22,4 @@ python -m lasdai-ula.ejemplos.ejemplo1
 ## Ejemplos
 - Ejemplo 1: hola mundo
 - Ejemplo 2: conversación usando LLM
+- Ejemplo 3: reconocimiento de emoción

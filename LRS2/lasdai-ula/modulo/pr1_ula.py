@@ -7,6 +7,7 @@ import wave
 import audioop
 import time
 import json
+import platform
 
 from dotenv import load_dotenv
 
@@ -22,10 +23,10 @@ os.system(f"sudo chmod -R 777 {RUTA_PUERTO}")
 MODEL = "vosk-model-small-es-0.42"
 
 # Parámetros de grabación
-CHUNK = 1024
+CHUNK = 16000
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
-RATE = 16000
+RATE = 48000
 SILENCE_THRESHOLD = 1000
 MAX_SILENCE_SECONDS = 2
 
@@ -57,7 +58,12 @@ comando = {
 }
 
 try:
-    ula = ctypes.CDLL('./lasdai-ula/modulo/pr1-ula.so')
+    arq = platform.machine()
+    if arq == "x86_64":
+        ula = ctypes.CDLL('./lasdai-ula/modulo/64bits/pr1-ula.so')
+    else:
+        ula = ctypes.CDLL('./lasdai-ula/modulo/Pi3/pr1-ula.so')
+
 except OSError as e:
     print(f"Error al cargar la biblioteca: {e}")
 
