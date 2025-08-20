@@ -56,18 +56,11 @@ comando = {
     "habilitarEntradas": 57,
     "deshabilitarEntradas": 58
 }
+arq = "64bits" if platform.machine() == "x86_64" else "Raspberry"
+path = f'./lasdai_ula/modulo/{arq}/pr1-ula.so'
+ula = ctypes.CDLL(path) if os.path.exists(path) else None
 
-try:
-    arq = platform.machine()
-    if arq == "x86_64":
-        ula = ctypes.CDLL('./lasdai-ula/modulo/64bits/pr1-ula.so')
-    else:
-        ula = ctypes.CDLL('./lasdai-ula/modulo/Raspberry/pr1-ula.so')
-
-except OSError as e:
-    print(f"Error al cargar la biblioteca: {e}")
-
-def respuestaRobot(pr1, id, personalidad, texto):
+def respuestaRobot(id, personalidad, texto):
     # Generar el audio directamente en un buffer de memoria
     tts = gTTS(text=texto, lang='es', tld='co.ve')
     mp3_fp = io.BytesIO()
@@ -79,3 +72,4 @@ def respuestaRobot(pr1, id, personalidad, texto):
         temp_file.flush() # Asegura que todos los datos se han escrito
 
         ula.hablarRobot2(id, personalidad.encode('utf-8'), temp_file.name.encode('utf-8'))
+

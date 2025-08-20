@@ -16,7 +16,7 @@ Si la configuración de los paquetes fue exitosa puede empezar.
 Pruebe ejecutando el primer programa:
 
 ```
-python -m lasdai-ula.ejemplos.ejemplo1
+python -m lasdai_ula.ejemplos.ejemplo1
 ```
 
 ## Ejemplos

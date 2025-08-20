@@ -25,7 +25,7 @@ SetLogLevel(-1) # Oculta logs
 model = Model(pr1.MODEL)
 rec = KaldiRecognizer(model, pr1.RATE)
 
-pr1.respuestaRobot(pr1, id, "analitico", "Hola, en qué puedo ayudarte")
+pr1.respuestaRobot(id, "analitico", "Hola, en qué puedo ayudarte")
 #print("Escuchando...")
 
 # 💬 Historial de la conversación
@@ -67,7 +67,7 @@ while True:
 
     # 🛑 Condición de finalización
     if any(keyword in user_message.lower() for keyword in ["terminar", "adiós", "cancelar"]):
-        pr1.respuestaRobot(pr1, id, "alentador", "Claro, adiós. ¡Que tengas un excelente día!")
+        pr1.respuestaRobot(id, "alentador", "Claro, adiós. ¡Que tengas un excelente día!")
         break
 
     # 🤖 Si el texto no está vacío, procesar con Gemini
@@ -82,11 +82,11 @@ while True:
             respuesta = llm.invoke(prompt)
             # Añadir respuesta del modelo al historial
             chat_history.append(respuesta)
-            pr1.respuestaRobot(pr1, id, "alentador", respuesta.content)
+            pr1.respuestaRobot(id, "alentador", respuesta.content)
             print("LRS2 responde:", respuesta.content)
         except Exception as e:
             print(f"Ocurrió un error con LRS2: {e}")
-            pr1.respuestaRobot(pr1, id, "alentador", "¿Podrías repetirlo?")
+            pr1.respuestaRobot(id, "alentador", "¿Podrías repetirlo?")
 
 # Finalizar la conexión
 stream.stop_stream()
