@@ -12,5 +12,5 @@ Es la versión actual que se basa en la primera cuyo objetivo es potenciar las i
 - Modificaciones en la biblioteca pr1-ula
     - Modificado el programa para reproducir el audio, ahora se usa mpv
     - Agregado el nombre LRS2 para identificar el robot fisico 
-    - Agregado el procedimiento hablarRobot2(int, char*, char*) para usar el gtts y mejorar la sincronización del movimiento de la boca
+    - Agregado el procedimiento hablarRobot2(int, char*) para usar el gtts y mejorar la sincronización del movimiento de la boca
     - Modificada la ruta para guardar sonidos: lasdai_ula/sonidos
