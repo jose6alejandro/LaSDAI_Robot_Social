@@ -114,5 +114,3 @@ if __name__ == "__main__":
         print(f"{emocion_detectada}")
     
     pr1.ula.desconectarRobot(id);
-        # Opcionalmente, puedes eliminar el archivo de la foto después de usarlo
-        # os.remove(nombre_de_foto)

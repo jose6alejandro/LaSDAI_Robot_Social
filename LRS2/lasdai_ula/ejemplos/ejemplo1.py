@@ -5,10 +5,12 @@ def main():
     
     id =  pr1.ula.conectarRobot(pr1.ROBOT.encode('utf-8'));
 
-    pr1.respuestaRobot(id, "analitico", "Hola mundo, esto es una prueba!");
+    pr1.respuestaRobot(id, 'Hola mundo, esto es una prueba!');
+
     pr1.ula.enviarRobot(id, comando["expresarFeliz"]);
 
     pr1.ula.desconectarRobot(id);
 
 if __name__ == "__main__":
   main()
+ 
