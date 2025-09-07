@@ -17,7 +17,6 @@ from vosk import Model, KaldiRecognizer, SetLogLevel
 
 # Permiso para el puerto del robot
 RUTA_PUERTO = "/dev"
-os.system(f"sudo chmod -R 777 {RUTA_PUERTO}")
 
 # Modelo de reconocimiento de voz
 MODEL = "vosk-model-small-es-0.42"
@@ -33,8 +32,12 @@ MAX_SILENCE_SECONDS = 2
 # Configuraciones del robot
 ROBOT = "LRS2"
 
-# voces: alentador, empatico, analitico, calmado
+# Parámetros para la voz del robot
+PITCH = '0.9'
+SPEED = '1.1'  
+VOLUME = '100'
 
+# Acciones del robot
 comando = {
     "expresarNormal": 4, 
     "cerrarOjos": 59, 
@@ -56,12 +59,15 @@ comando = {
     "habilitarEntradas": 57,
     "deshabilitarEntradas": 58
 }
+
 arq = "64bits" if platform.machine() == "x86_64" else "Raspberry"
 path = f'./lasdai_ula/modulo/{arq}/pr1-ula.so'
 ula = ctypes.CDLL(path) if os.path.exists(path) else None
 
-def respuestaRobot(id, personalidad, texto):
-    # Generar el audio directamente en un buffer de memoria
+def respuestaRobot(id, texto):
+
+    personalidad = f'--af=rubberband=pitch-scale={PITCH} --speed={SPEED} --volume={VOLUME}'
+
     tts = gTTS(text=texto, lang='es', tld='co.ve')
     mp3_fp = io.BytesIO()
     tts.write_to_fp(mp3_fp)
